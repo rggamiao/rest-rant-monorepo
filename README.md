@@ -1,42 +1,87 @@
-# Project REST-Rant
-REST-Rant is an app where users can review restaurants.
+# at-4-advanced-typescript
 
-### Setup
-First, you'll need a Postgres database to connect to. Follow instructions here to setup the database and save credentials for the next step.
+# REST Rant
 
-Next create a `.env` file inside of `backend`. It will need to contain the following environment variables (change the values for the database to match what you defined in the previous step)
-```
-PORT=5000
-DB_USERNAME=rest_rant_user
-DB_PASSWORD=password
-DB_DATABASE=rest_rant
-```
+# at-5-application-documentation
 
-Next `cd` into `backend` and run `npm install` to install dependencies for the API.
+## Description
+REST Rant is a full-stack application built with Express and React, designed to allow users to create, read, update, and delete (CRUD) restaurant reviews. This project leverages various libraries and technologies to provide a smooth user experience and robust backend functionality.
 
-Next, `cd` into `frontend`, and run `npm install` to install dependencies for the React app.
+## Demo
+[Link to live demo]
 
-Finally, in separate terminals, run `npm start` in each folder so that the API and React app are running at the same time.
+## Technologies
+- **Backend:**
+  - Express
+  - Node.js
+  - PostgreSQL
+  - Sequelize
+  - JWT (jsonwebtoken)
+  - Bcrypt
+  - Body-parser
+  - CORS
+  - Method-Override
+  - Nodemon (development)
 
-### API (http://localhost:5000)
-| Method | Path                                 | Purpose                                   |
-| ------ | ------------------------------------ | ----------------------------------------- |
-| GET    | /                                    | Home page                                 |
-| GET    | /places                              | Places index page                         |
-| POST   | /places                              | Create new place                          |
-| GET    | /places/:placeId                     | Details about a particular place          |
-| PUT    | /places/:placeId                     | Update a particular place                 |
-| DELETE | /places/:placeId                     | Delete a particular place                 |
-| POST   | /places/:placeId/comments            | Create a comment about a particular place |
-| DELETE | /places/:placeId/comments/:commentId | Delete a comment about a particular place |
+- **Frontend:**
+  - React
+  - React Router
+  - React Scripts
+  - @testing-library for unit tests
+
+## Technical Information
+
+### Installation Instructions
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+
+2. Navigate to the backend directory and install dependencies:
+    cd backend
+    npm install
+
+3. Set up environment variables in a .env file:
+    cd backend
+npm install
+
+4. Start the backend server:
+    npm start
+
+5. Navigate to the frontend directory and install dependencies:
+    cd frontend
+    npm install
+
+6. Start the frontend server:
+    npm start
+
+7. You may need to open 2 separate terminal for this as both servers are required to be running.
+
+## Issues
 
 
-### App (http://localhost:3000)
-| Path                  | Component                 | Purpose                                                                         |
-| --------------------- | ------------------------- | ------------------------------------------------------------------------------- |
-| /                     | `Home.js`                 | Home page                                                                       |
-| /sign-up              | `users/SignUpForm.js`     | Form for creating a new user                                                    |
-| /places               | `places/PlaceIndex.js`    | List of places                                                                  |
-| /places/new           | `places/NewPlaceForm.js`  | Form for creating a new place                                                   |
-| /places/:placeId      | `places/PlaceDetails.js`  | Details of a place, including it's comments, and a form to create a new comment |
-| /places/:placeId/edit | `places/EditPlaceForm.js` | Form for editing a place                                                        |
+
+# API Documentation
+
+## Types of API Documentation
+
+[API List Docs Here]
+
+# End Points 
+
+*   /
+*   /#
+*   /places
+*   /places/placeId
+*   /users
+*   /profile
+*   /authentication
+
+# Values Returned 
+
+*  userId
+*  firstName
+*  lastName
+*  email
+*  passwordDigest
+*  createdAt
+*  updatedAt
