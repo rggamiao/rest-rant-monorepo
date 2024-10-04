@@ -1,47 +1,38 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { fetchPlaces } from '../api';
 
-function PlaceIndex(data) {
+function PlaceIndex() {
+  const [places, setPlaces] = useState([]);
+  const [error, setError] = useState(null);
 
-	const history = useHistory()
-	
-	const [places, setPlaces] = useState([])
+  useEffect(() => {
+    const loadPlaces = async () => {
+      try {
+        const data = await fetchPlaces();
+        setPlaces(data);
+      } catch (err) {
+        setError('Failed to fetch places. Please try again later.');
+      }
+    };
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const response = await fetch(`http://localhost:5000/places`)
-			const resData = await response.json()
-			setPlaces(resData)
-		}
-		fetchData()
-	}, [])
+    loadPlaces();
+  }, []);
 
-	let placesFormatted = places.map((place) => {
-		return (
-			<div className="col-sm-6" key={place.placeId}>
-				<h2>
-					<a href="#" onClick={() => history.push(`/places/${place.placeId}`)} >
-						{place.name}
-					</a>
-				</h2>
-				<p className="text-center">
-					{place.cuisines}
-				</p>
-				<img style={{ maxWidth: 200 }} src={place.pic} alt={place.name} />
-				<p className="text-center">
-					Located in {place.city}, {place.state}
-				</p>
-			</div>
-		)
-	})
-	return (
-		<main>
-			<h1>Places to Rant or Rave About</h1>
-			<div className="row">
-				{placesFormatted}
-			</div>
-		</main>
-	)
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+
+  return (
+    <div className="place-index">
+      <h2>Places</h2>
+      {places.map(place => (
+        <div key={place.id} className="place-item gothic-border">
+          <h3>{place.name}</h3>
+          <p>{place.description}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default PlaceIndex;
