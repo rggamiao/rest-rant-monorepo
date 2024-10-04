@@ -34,7 +34,7 @@ function App() {
             </Switch>
           </main>
           <footer className="gothic-border">
-            <p>&copy; 2023 REST Rant - Gothic Edition</p>
+            <p>REST Rant - Gothic Edition</p>
           </footer>
         </div>
       </BrowserRouter>
